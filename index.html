@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>New Tab</title>
+	</head>
+	<body>
+		<p>it's</p>
+		<p id="clock"></p>
+		<script>
+			function updateClock() {
+				const now = new Date();
+				let hours = now.getHours() % 12 || 12;
+				const minutes = String(now.getMinutes()).padStart(2, "0");
+				const seconds = String(now.getSeconds()).padStart(2, "0");
+				const ampm = hours >= 12 ? "pm" : "am";
+				document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+			}
+			updateClock();
+			setInterval(updateClock, 1000);
+		</script>
+		<style>
+			body {
+				background-color: #2f2f2f;
+				color: white;
+				font-family: "Helvetica Neue", sans-serif;
+				font-weight: 500;
+				font-size: 24px;
+				padding: 20px;
+			}
+			p {
+				margin: 0;
+			}
+		</style>
+	</body>
+</html>
